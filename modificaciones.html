@@ -1,18 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="e">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modificar Producto</title>
+    <link rel="icon" href="img/favicon.ico"> 
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 
 <body>
-    <h1>Modificar Productos del Inventario</h1>
-    <div class="img"><img src="img/logo_codo.png" alt="codoacodo" width="100px"></div>
-    <h3>Codo a Codo 2023</h3>
+    <br>
+    <div class="img"><img src="img/logo b.png" alt="logo" width="85px"></div>
+    <h1 style="font-size: 2.6rem;">Lor.Es Tech</h1>
+    <h3>EQUIPAMIENTO TECNOLOGICO</h3>
+    <hr>
+    <br>
+    <h3>Modificar Productos del Inventario</h3>
     <div id="app">
         <form @submit.prevent="obtenerProducto">
             <label for="codigo">Código:</label>
@@ -82,12 +87,12 @@
                     }
 
                     fetch(URL + 'productos/' + this.codigo, {
-                            method: 'PUT',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify(producto)
-                        })
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(producto)
+                    })
                         .then(response => {
                             if (response.ok) {
                                 return response.json()

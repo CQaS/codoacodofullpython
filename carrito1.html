@@ -1,19 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Carrito de compras</title>
+  <link rel="icon" href="img/favicon.ico"> 
   <script src="https://unpkg.com/vue@next"></script>
   <link rel="stylesheet" href="css/estilos.css">
 </head>
 
 <body>
+  <br>
+  <div class="img"><img src="img/logo b.png" alt="logo" width="85px"></div>
+  <h1 style="font-size: 2.6rem;">Lor.Es Tech</h1>
+  <h3>EQUIPAMIENTO TECNOLOGICO</h3>
+  <hr>
   <div id="app">
-    <h1>Carrito de compras</h1>
-    <div class="img"><img src="img/logo_codo.png" alt="codoacodo" width="100px"></div>
-    <h3>Codo a Codo 2023</h3>
+    <h2>Carrito de compras</h2>
     <table>
       <thead>
         <tr>
@@ -31,7 +35,7 @@
           <td align="right">{{ producto.cantidad }}</td>
           <td align="right">&nbsp; &nbsp; {{ producto.precio }}</td>
           <td>
-            <button @click="agregarAlCarrito(producto)">&nbsp;&nbsp;<b>+</b>&nbsp;&nbsp;</button>
+            <button @click="agregarAlCarrito(producto)">&nbsp;&nbsp;<b>+</b>&nbsp;&nbsp;</button> 
             <button @click="restarDelCarrito(producto)">&nbsp;&nbsp;<b>-</b>&nbsp;&nbsp;</button>
           </td>
         </tr>
@@ -65,7 +69,7 @@
     </div>
 
     <div class="contenedor-centrado">
-      <a href="index.html">Menu principal</a>
+      <a style="width: auto;" href="index.html">Menu principal</a>
     </div>
 
   </div>
@@ -99,15 +103,15 @@
         },
         agregarAlCarrito(producto) {
           fetch(URL + 'carrito', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({
-                codigo: producto.codigo,
-                cantidad: 1, // Agregamos una unidad al carrito
-              }),
-            })
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              codigo: producto.codigo,
+              cantidad: 1, // Agregamos una unidad al carrito
+            }),
+          })
             .then(response => response.json())
             .then(data => {
               alert(data.message)
@@ -119,15 +123,15 @@
         },
         restarDelCarrito(producto) {
           fetch(URL + 'carrito', {
-              method: 'DELETE',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({
-                codigo: producto.codigo,
-                cantidad: 1, // Restamos una unidad del carrito
-              }),
-            })
+            method: 'DELETE',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              codigo: producto.codigo,
+              cantidad: 1, // Restamos una unidad del carrito
+            }),
+          })
             .then(response => response.json())
             .then(data => {
               alert(data.message)
